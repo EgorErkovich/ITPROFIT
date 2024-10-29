@@ -1,0 +1,70 @@
+$form-background: #fff
+$border-color: #ccc
+$focus-border-color: #66afe9
+$button-background: #28a745
+$button-hover-background: #218838
+$text-color: #333
+$border-radius: 4px
+
+form
+  width: 400px
+  margin: 50px auto
+  background-color: $form-background
+  padding: 20px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+  border-radius: 8px
+
+  h2
+    text-align: center
+    color: $text-color
+
+  .form-group
+    margin-bottom: 15px
+
+    label
+      display: block
+      font-weight: bold
+      margin-bottom: 5px
+
+    input[type="text"],
+    input[type="email"],
+    textarea
+      width: 100%
+      padding: 10px
+      border: 1px solid $border-color
+      border-radius: $border-radius
+      box-sizing: border-box
+      font-size: 14px
+
+      &:focus
+        border-color: $focus-border-color
+        outline: none
+
+    textarea
+      resize: none
+
+    .error-message
+      color: red
+      font-size: 0.9em
+      margin-top: 5px
+
+    input.error, textarea.error
+      border: 1px solid red
+
+  .submit-button
+    background-color: $button-background
+    color: white
+    border: none
+    padding: 10px 15px
+    cursor: pointer
+    width: 100%
+    border-radius: $border-radius
+    font-size: 16px
+
+    &:hover
+      background-color: $button-hover-background
+
+  #responseMessage
+    margin-top: 20px
+    text-align: center
+    font-weight: bold
