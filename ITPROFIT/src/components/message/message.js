@@ -1,6 +1,6 @@
 import './styles.sass';
-import { default as successImage } from '../../assets/success.png';
-import { default as errorImage } from '../../assets/error.png';
+import successImage from '../../assets/success.png';
+import errorImage from '../../assets/error.png';
 
 const messageBox = document.createElement('div');
 const messageImage = document.createElement('img');
