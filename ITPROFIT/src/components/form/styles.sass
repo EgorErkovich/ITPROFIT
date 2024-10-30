@@ -2,29 +2,33 @@ $form-background: #fff
 $border-color: #ccc
 $focus-border-color: #66afe9
 $button-background: #28a745
+$button-disabled-background: #218838
 $button-hover-background: #218838
 $text-color: #333
 $border-radius: 4px
 
 form
+  display: flex
+  flex-direction: column
+  gap: 5px
   width: 400px
   margin: 50px auto
   background-color: $form-background
   padding: 20px
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
-  border-radius: 8px
+  border-radius: 12px
 
   h2
     text-align: center
     color: $text-color
 
   .form-group
-    margin-bottom: 15px
 
     label
       display: block
       font-weight: bold
       margin-bottom: 5px
+      padding-left: 5px
 
     input[type="text"],
     input[type="email"],
@@ -44,8 +48,9 @@ form
       resize: none
 
     .error-message
+      height: 17px
       color: red
-      font-size: 0.9em
+      font-size: 0.85em
       margin-top: 5px
 
     input.error, textarea.error
@@ -63,6 +68,10 @@ form
 
     &:hover
       background-color: $button-hover-background
+    
+    &:disabled
+      cursor: default
+      background-color: $button-disabled-background
 
   #responseMessage
     margin-top: 20px
