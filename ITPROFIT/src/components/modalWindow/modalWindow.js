@@ -1,4 +1,7 @@
 import './styles.sass';
+import telegram from '../../assets/telegram.png';
+import linkedin from '../../assets/linkedin.png';
+import github from '../../assets/github.png';
 
 const body = document.body;
 
@@ -19,23 +22,50 @@ const closeButton = document.createElement('span');
 closeButton.className = 'close-button';
 closeButton.textContent = '×';
 
-const modalText = document.createElement('div');
-modalText.id = 'modalText';
-modalText.textContent = 'Сделано Ерковичем Егором.';
+const header = document.createElement('h2');
+header.textContent = 'Мои контакты';
+modalContent.appendChild(header);
+
+const linkList = document.createElement('div');
+linkList.className = 'link-list';
+
+const links = [
+	{ href: 'https://t.me/Ederkovich', text: 'Telegram', imgSrc: telegram },
+	{ href: 'https://www.linkedin.com/in/egor-erkovich/', text: 'LinkedIn', imgSrc: linkedin },
+	{ href: 'https://github.com/EgorErkovich', text: 'GitHub', imgSrc: github },
+];
+
+links.forEach(link => {
+	const linkItem = document.createElement('div');
+	linkItem.className = 'link-item';
+
+	const img = document.createElement('img');
+	img.src = link.imgSrc;
+	img.alt = link.text;
+	img.className = 'link-icon';
+
+	const a = document.createElement('a');
+	a.href = link.href;
+	a.textContent = link.text;
+	a.target = '_blank';
+
+	linkItem.appendChild(img);
+	linkItem.appendChild(a);
+	linkList.appendChild(linkItem);
+});
 
 modalContent.appendChild(closeButton);
-modalContent.appendChild(modalText);
+modalContent.appendChild(linkList);
 modal.appendChild(modalContent);
 body.appendChild(modal);
 
 openModalButton.addEventListener('click', () => {
 	const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 	body.style.paddingRight = `${scrollBarWidth}px`;
-    
+
 	modal.classList.add('show');
 	openModalButton.classList.add('hidden');
 	body.classList.add('no-scroll');
-
 });
 
 closeButton.addEventListener('click', () => {
